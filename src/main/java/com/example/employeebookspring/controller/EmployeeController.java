@@ -13,15 +13,23 @@ import java.util.Collection;
 @RestController
 public class EmployeeController {
     private final EmployeeService employeeService;
-    public EmployeeController(EmployeeService employeeService){
+
+    public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
-    @GetMapping("/employee")
-    public Collection<Employee> getAllEmployees(){
 
+    @GetMapping("/employees")
+    public Collection<Employee> getAllEmployees() {
+        return employeeService.getAllEmployees();
     }
+
+    @GetMapping("/salaryMax")
+    public Employee employee() {
+        return employeeService.employeeSalaryMax();
+    }
+
     @PostMapping("/employees")
     public Employee createEmployee(EmployeeRequest employeeRequest){
-        
+       return this.employeeService.addEmployee(employeeRequest);
     }
 }
