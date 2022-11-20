@@ -4,9 +4,8 @@ import com.example.employeebookspring.model.Employee;
 import com.example.employeebookspring.record.EmployeeRequest;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class EmployeeService {
@@ -25,10 +24,34 @@ public class EmployeeService {
         return employee;
     }
 
-    public Employee employeeSalaryMax() {
-        employeeMap.values()
+    public int getSumSalary() {
+        return employeeMap.values()
                 .stream()
-                .map(employee -> employee.getSalary());
-        return new Employee("1", "1", 1, 1);
+                .mapToInt(employee -> employee.getSalary())
+                .sum();
+    }
+
+    public Employee getEmpMin() {
+        return employeeMap.values().stream()
+                .min(Comparator.comparingInt(Employee::getSalary))
+                .orElseThrow(() -> new RuntimeException("?????"));
+    }
+
+    public Employee getEmpMax() {
+        return employeeMap.values().stream()
+                .max(Comparator.comparingInt(Employee::getSalary))
+                .orElseThrow(() -> new RuntimeException("?????"));
+    }
+
+    public Collection<Employee> getEmpHighSalary() {
+        double average = employeeMap.values()
+                .stream()
+                .mapToInt(Employee::getSalary)
+                .average()
+                .getAsDouble();
+        return employeeMap.values()
+                .stream()
+                .filter(employee -> (double)employee.getSalary() > average)
+                .collect(Collectors.toList());
     }
 }
