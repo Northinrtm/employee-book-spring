@@ -5,6 +5,7 @@ import com.example.employeebookspring.record.EmployeeRequest;
 import com.example.employeebookspring.service.EmployeeService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
@@ -18,13 +19,13 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @GetMapping("/employees")
+    @GetMapping("/employee")
     public Collection<Employee> getAllEmployees() {
         return this.employeeService.getAllEmployees();
     }
 
-    @PostMapping("/employees")
-    public Employee createEmployee(EmployeeRequest employeeRequest) {
+    @PostMapping("/employee")
+    public Employee createEmployee(@RequestBody EmployeeRequest employeeRequest) {
         return this.employeeService.addEmployee(employeeRequest);
     }
 
