@@ -25,8 +25,6 @@ class EmployeeServiceTest {
     @Test
     void getAllEmployeesInDep() {
 
-        when(out.getAllEmployeesInDep())
-                .thenReturn(Collection<Employee>);
     }
 
     @Test

@@ -3,21 +3,21 @@ package com.example.employeebookspring.repositories;
 import com.example.employeebookspring.model.Employee;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
+import java.util.Collection;
 
 @Component
 public class EmployeesRepository {
     private static int id;
-    private final List<Employee> employeeList;
+    private final Collection<Employee> employeeCollection;
 
-    public EmployeesRepository(List<Employee> employeeList) {
-        this.employeeList = employeeList;
+    public EmployeesRepository(Collection<Employee> employeeList) {
+        this.employeeCollection = employeeList;
     }
-    public List<Employee> getEmployeeList(){
-        return employeeList;
+    public Collection<Employee> getEmployeeCollection(){
+        return employeeCollection;
     }
     public void addEmoloyee(Employee employee){
-        employeeList.add(employee);
+        employeeCollection.add(employee);
     }
 
     public static int getId() {

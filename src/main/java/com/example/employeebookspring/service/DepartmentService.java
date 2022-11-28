@@ -16,7 +16,8 @@ public class DepartmentService {
     }
 
     public Collection<Employee> getAllEmployeesInDep(int i) {
-        return employeeMap.values().stream()
+        return employeesRepository.getEmployeeCollection()
+                .stream()
                 .filter(e -> e.getDepartament() == i)
                 .collect(Collectors.toList());
     }
@@ -45,7 +46,7 @@ public class DepartmentService {
 
     public Map<Integer, List<Employee>> integerEmployeeMap() {
         Map<Integer, List<Employee>> employeeMap1 = new HashMap<>();
-        for (Employee e : employeeMap.values()) {
+        for (Employee e : employeesRepository.getEmployeeCollection()) {
             if (employeeMap1.containsKey(e.getDepartament())) {
                 employeeMap1.get(e.getDepartament()).add(e);
             } else {
@@ -56,5 +57,4 @@ public class DepartmentService {
         }
         return employeeMap1;
     }
-
 }
