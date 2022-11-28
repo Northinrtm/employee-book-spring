@@ -2,13 +2,13 @@ package com.example.employeebookspring.model;
 
 public class Employee {
     private final String firstName, lastName;
-    private final int id, departament, salary;
+    private final int id, department, salary;
     private static int counter;
 
-    public Employee(String firstName, String lastName, int departament, int salary) {
+    public Employee(String firstName, String lastName, int department, int salary) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.departament = departament;
+        this.department = department;
         this.salary = salary;
         this.id = counter++;
     }
@@ -25,8 +25,9 @@ public class Employee {
         return id;
     }
 
+
     public int getDepartament() {
-        return departament;
+        return department;
     }
 
     public int getSalary() {
@@ -39,7 +40,7 @@ public class Employee {
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", id=" + id +
-                ", departament=" + departament +
+                ", departament=" + department +
                 ", salary=" + salary +
                 '}';
     }

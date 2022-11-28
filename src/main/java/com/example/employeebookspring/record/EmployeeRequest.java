@@ -2,7 +2,7 @@ package com.example.employeebookspring.record;
 
 public class EmployeeRequest {
     private String firstName, lastName;
-    private int salary, departament;
+    private int salary, department;
 
     public String getFirstName() {
         return firstName;
@@ -28,11 +28,11 @@ public class EmployeeRequest {
         this.salary = salary;
     }
 
-    public int getDepartament() {
-        return departament;
+    public int getDepartment() {
+        return department;
     }
 
-    public void setDepartament(int departament) {
-        this.departament = departament;
+    public void setDepartment(int department) {
+        this.department = department;
     }
 }

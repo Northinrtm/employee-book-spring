@@ -18,7 +18,7 @@ public class EmployeeService {
     public Employee addEmployee(EmployeeRequest employeeRequest) {
         Employee employee = new Employee(employeeRequest.getFirstName(),
                 employeeRequest.getLastName(),
-                employeeRequest.getDepartament(),
+                employeeRequest.getDepartment(),
                 employeeRequest.getSalary());
         this.employeeMap.put(employee.getId(), employee);
         return employee;
@@ -51,7 +51,7 @@ public class EmployeeService {
                 .getAsDouble();
         return employeeMap.values()
                 .stream()
-                .filter(employee -> (double)employee.getSalary() > average)
+                .filter(employee -> (double) employee.getSalary() >= average)
                 .collect(Collectors.toList());
     }
 }
