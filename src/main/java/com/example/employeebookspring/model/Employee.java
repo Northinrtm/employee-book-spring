@@ -1,5 +1,7 @@
 package com.example.employeebookspring.model;
 
+import java.util.Objects;
+
 public class Employee {
     private final String firstName, lastName;
     private final int id, department, salary;
@@ -43,5 +45,17 @@ public class Employee {
                 ", departament=" + department +
                 ", salary=" + salary +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Employee employee)) return false;
+        return department == employee.department && getSalary() == employee.getSalary() && getFirstName().equals(employee.getFirstName()) && getLastName().equals(employee.getLastName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getFirstName(), getLastName(), getId(), department, getSalary());
     }
 }
