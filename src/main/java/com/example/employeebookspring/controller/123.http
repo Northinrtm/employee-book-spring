@@ -1,0 +1,56 @@
+###
+GET http://localhost:8080/department/1/employees
+
+###Добавление сотрудника
+POST http://localhost:8080/employee
+Content-Type: application/json
+
+{
+  "firstName": "Test",
+  "lastName": "Test",
+  "department": 1,
+  "salary": 1000
+}
+
+###Добавление сотрудника
+POST http://localhost:8080/employee
+Content-Type: application/json
+
+{
+  "firstName": "Test1",
+  "lastName": "Test1",
+  "department": 1,
+  "salary": 1500
+}
+
+###Добавление сотрудника
+POST http://localhost:8080/employee
+Content-Type: application/json
+
+{
+  "firstName": "Test1",
+  "lastName": "Test1",
+  "department": 2,
+  "salary": 3000
+}
+
+###Добавление сотрудника
+POST http://localhost:8080/employee
+Content-Type: application/json
+
+{
+  "firstName": "Test1",
+  "lastName": "Test1",
+  "department": 2,
+  "salary": 2500
+}
+
+
+###
+GET http://localhost:8080/department/1/employees
+
+###
+GET http://localhost:8080/department/1/salary/sum
+
+###
+GET http://localhost:8080/department/employeesToMap
